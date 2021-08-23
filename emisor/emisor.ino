@@ -7,7 +7,7 @@
 #define SS      18   // GPIO18 -- SX1278's CS
 #define RST     14   // GPIO14 -- SX1278's RESET
 #define DI0     26   // GPIO26 -- SX1278's IRQ(Interrupt Request)
-#define BAND  868E6
+#define BAND  915E6
 
 int counter = 0;
 
@@ -19,7 +19,7 @@ void setup() {
   
 SPI.begin(SCK,MISO,MOSI,SS);
   LoRa.setPins(SS,RST,DI0);
-  if (!LoRa.begin(915E6)) {
+  if (!LoRa.begin(BAND)) {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
